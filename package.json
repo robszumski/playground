@@ -27,6 +27,7 @@
     "google-protobuf": "^3.21.2",
     "graphql": "16.6.0",
     "install": "^0.13.0",
+    "js-yaml": "4.1.1",
     "line-column": "^1.0.2",
     "lodash.throttle": "^4.1.1",
     "markdown-it": "^13.0.1",
@@ -111,5 +112,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "**/js-yaml": "^4.1.1"
   }
 }
