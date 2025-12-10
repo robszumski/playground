@@ -24,7 +24,7 @@ function ForTesting() {
   return <FullPlayground />;
 }
 
-// SAST test: dangerouslySetInnerHTML usage
+// SAST test: dangerouslySetInnerHTML usage (edit)
 function UnsafeHtmlRenderer(props: { htmlContent: string }) {
   return <div dangerouslySetInnerHTML={{ __html: props.htmlContent }} />;
 }
