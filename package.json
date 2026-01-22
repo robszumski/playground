@@ -28,6 +28,7 @@
     "graphql": "16.6.0",
     "install": "^0.13.0",
     "line-column": "^1.0.2",
+    "lodash": "4.17.23",
     "lodash.throttle": "^4.1.1",
     "markdown-it": "^13.0.1",
     "marked": "^4.0.10",
@@ -111,5 +112,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "**/lodash": "^4.17.23"
   }
 }
