@@ -20,11 +20,11 @@
     "@protobuf-ts/plugin": "^2.6.0",
     "ansi-to-html": "^0.7.2",
     "color-hash": "^2.0.2",
-    "d3-scale-chromatic": "^2.0.0",
+    "d3-scale-chromatic": "^3.1.0",
     "dequal": "^2.0.2",
     "file-saver": "^2.0.5",
     "file-select-dialog": "^1.5.4",
-    "google-protobuf": "^3.21.2",
+    "google-protobuf": "^4.0.1",
     "graphql": "16.6.0",
     "install": "^0.13.0",
     "line-column": "^1.0.2",
@@ -111,5 +111,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
