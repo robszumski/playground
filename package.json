@@ -40,6 +40,7 @@
     "react-reflex": "^4.0.9",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^5.3.4",
+    "rollup": "4.59.0",
     "sjcl": "^1.0.8",
     "string-to-color": "^2.2.2",
     "string.prototype.replaceall": "^1.0.6",
@@ -111,5 +112,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "**/rollup": "^4.59.0"
   }
 }
