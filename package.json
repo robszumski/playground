@@ -48,8 +48,8 @@
     "use-deep-compare": "^1.1.0",
     "use-deep-compare-effect": "^1.8.1",
     "use-keyboard-shortcuts": "^2.2.2",
-    "visjs-network": "^4.24.11",
-    "yaml": "^2.0.1"
+    "visjs-network": "^4.25.0",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
@@ -77,7 +77,7 @@
     "eslint": "^9.18.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.18",
-    "globals": "^15.14.0",
+    "globals": "^15.15.0",
     "postcss-safe-parser": "7.0.0",
     "prettier": "3.4.2",
     "typescript": "~5.7.3",
