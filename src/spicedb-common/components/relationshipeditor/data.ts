@@ -1,8 +1,20 @@
-import { uniqBy } from "lodash";
 import { RelationshipWithComments } from "../../parsing";
 import { RelationTuple as Relationship } from "../../protodefs/core/v1/core";
 import { Struct } from "../../protodefs/google/protobuf/struct";
 import { COLUMNS } from "./columns";
+
+/**
+ * uniqBy returns a new array with duplicates removed, keeping the first occurrence
+ * for each key returned by the iteratee function.
+ */
+function uniqBy<T>(arr: T[], iteratee: (item: T, index: number) => string | undefined): T[] {
+  const seen = new Map<string | undefined, T>();
+  for (let i = 0; i < arr.length; i++) {
+    const key = iteratee(arr[i], i);
+    if (!seen.has(key)) seen.set(key, arr[i]);
+  }
+  return Array.from(seen.values());
+}
 
 /**
  * ColumnData holds raw column data for the grid.
