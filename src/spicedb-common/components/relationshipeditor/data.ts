@@ -1,3 +1,4 @@
+import { uniqBy } from "lodash";
 import { RelationshipWithComments } from "../../parsing";
 import { RelationTuple as Relationship } from "../../protodefs/core/v1/core";
 import { Struct } from "../../protodefs/google/protobuf/struct";
@@ -68,6 +69,22 @@ export type AnnotatedData = RelationshipDatumAndMetadata[];
  */
 export function toExternalData(data: AnnotatedData): RelationshipDatum[] {
   return data.map((datum: RelationshipDatumAndMetadata) => datum.datum);
+}
+
+/**
+ * dedupeExternalData removes duplicate relationship rows from the given data, keying off of the
+ * full relationship string. Comment rows are always preserved.
+ */
+export function dedupeExternalData(
+  data: RelationshipDatum[],
+): RelationshipDatum[] {
+  return uniqBy(data, (datum: RelationshipDatum, index: number) => {
+    if (!("relation" in datum)) {
+      // Preserve every comment row by giving it a unique key.
+      return `comment-${index}`;
+    }
+    return toFullRelationshipString(datum);
+  });
 }
 
 /**
