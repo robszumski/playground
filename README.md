@@ -4,6 +4,7 @@
 <a href="https://authzed.com#gh-light-mode-only" target="_blank">
     <img width="300" src="https://github.com/authzed/spicedb/assets/343539/312ff046-7076-4c30-afd4-2e3d86c06f51" alt="spicedb Logo">
 </a>
+<a href="https://app.fossa.com/projects/git%2Bgithub.com%2Frobszumski%2Fplayground?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Frobszumski%2Fplayground.svg?type=shield"/></a>
 
 # Playground
 
@@ -163,3 +164,7 @@ While the project has a technical goal, participation is not restricted to those
 Join our [Community Discord](https://authzed.com/discord) to ask questions and meet other users.
 
 [feel welcomed]: CODE-OF-CONDUCT.md
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Frobszumski%2Fplayground.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Frobszumski%2Fplayground?ref=badge_large)
