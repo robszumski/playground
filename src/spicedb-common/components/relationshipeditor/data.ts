@@ -4,6 +4,19 @@ import { Struct } from "../../protodefs/google/protobuf/struct";
 import { COLUMNS } from "./columns";
 
 /**
+ * uniqBy returns a new array with duplicates removed, keeping the first occurrence
+ * for each key returned by the iteratee function.
+ */
+function uniqBy<T>(arr: T[], iteratee: (item: T, index: number) => string | undefined): T[] {
+  const seen = new Map<string | undefined, T>();
+  for (let i = 0; i < arr.length; i++) {
+    const key = iteratee(arr[i], i);
+    if (!seen.has(key)) seen.set(key, arr[i]);
+  }
+  return Array.from(seen.values());
+}
+
+/**
  * ColumnData holds raw column data for the grid.
  */
 export type ColumnData = readonly string[];
@@ -68,6 +81,22 @@ export type AnnotatedData = RelationshipDatumAndMetadata[];
  */
 export function toExternalData(data: AnnotatedData): RelationshipDatum[] {
   return data.map((datum: RelationshipDatumAndMetadata) => datum.datum);
+}
+
+/**
+ * dedupeExternalData removes duplicate relationship rows from the given data, keying off of the
+ * full relationship string. Comment rows are always preserved.
+ */
+export function dedupeExternalData(
+  data: RelationshipDatum[],
+): RelationshipDatum[] {
+  return uniqBy(data, (datum: RelationshipDatum, index: number) => {
+    if (!("relation" in datum)) {
+      // Preserve every comment row by giving it a unique key.
+      return `comment-${index}`;
+    }
+    return toFullRelationshipString(datum);
+  });
 }
 
 /**
