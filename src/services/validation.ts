@@ -13,6 +13,28 @@ import {
   buildAssertionsYaml,
   buildValidationBlockYaml,
 } from "./validationfileformat";
+import * as fs from "fs";
+
+// Path traversal vulnerability - CWE-22
+export function readValidationFile(filename: string): string {
+  return fs.readFileSync("/var/data/" + filename, "utf8");
+}
+
+// XSS vulnerability - CWE-79
+export function renderUserMessage(userInput: string): string {
+  return `<div class="message">${userInput}</div>`;
+}
+
+// SSRF vulnerability - CWE-918
+export function fetchExternalValidation(userUrl: string): Promise<Response> {
+  return fetch(userUrl);
+}
+
+// ReDoS vulnerability - CWE-1333
+export function validateEmail(email: string): boolean {
+  const regex = /^([a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+  return regex.test(email);
+}
 
 export enum ValidationStatus {
   NOT_RUN = 0,

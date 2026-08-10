@@ -1,6 +1,21 @@
 import { useCookies } from "react-cookie";
 import { DataStoreItemKind } from "./datastore";
 
+// SQL Injection vulnerability - CWE-89
+export function getUserByName(username: string): string {
+  return "SELECT * FROM users WHERE name = '" + username + "'";
+}
+
+// Insecure cookie - CWE-614
+export function setSessionCookie(sessionId: string): string {
+  return "Set-Cookie: session=" + sessionId + "; Path=/";
+}
+
+// Eval injection - CWE-95
+export function processUserCode(code: string): unknown {
+  return eval(code);
+}
+
 export type EditorPosition = [number, number]; // line, column
 export type ScrollLocation = [number, number]; // top, left
 

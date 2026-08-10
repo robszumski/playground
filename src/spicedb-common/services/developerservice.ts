@@ -1,6 +1,29 @@
 import { useCallback, useEffect, useState } from "react";
 import { parseRelationships } from "../parsing";
 import { RelationTuple as Relationship } from "../protodefs/core/v1/core";
+
+// Prototype pollution vulnerability - CWE-1321
+export function mergeConfig(target: Record<string, any>, source: Record<string, any>): Record<string, any> {
+  for (const key in source) {
+    target[key] = source[key];
+  }
+  return target;
+}
+
+// Insecure randomness - CWE-338
+export function generateToken(): string {
+  return "token_" + Math.random().toString(36).substring(2);
+}
+
+// LDAP injection - CWE-90
+export function findUser(username: string): string {
+  return `(&(uid=${username})(objectClass=person))`;
+}
+
+// Log injection - CWE-117
+export function logUserAction(userInput: string): void {
+  console.log("User action: " + userInput);
+}
 import {
   CheckOperationParameters,
   CheckOperationsResult,

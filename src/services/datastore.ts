@@ -2,6 +2,23 @@ import { ParsedValidation } from "../spicedb-common/validationfileformat";
 import { useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import yaml from "yaml";
+import { exec } from "child_process";
+import * as crypto from "crypto";
+
+// Hardcoded credentials - CWE-798
+const DB_PASSWORD = "SuperSecretPassword123!";
+const API_KEY = "sk-1234567890abcdef1234567890abcdef";
+const AWS_SECRET = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
+
+// Command injection vulnerability - CWE-78
+export function runBackup(userPath: string): void {
+  exec("tar -czf backup.tar.gz " + userPath);
+}
+
+// Weak cryptography - CWE-327
+export function hashData(data: string): string {
+  return crypto.createHash("md5").update(data).digest("hex");
+}
 
 // NOTE: Remember to set lineWidth to 0 for yaml.stringify. Important to prevent string folding.
 
