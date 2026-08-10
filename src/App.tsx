@@ -24,6 +24,11 @@ function ForTesting() {
   return <FullPlayground />;
 }
 
+// SAST test: dangerouslySetInnerHTML usage
+function UnsafeHtmlRenderer(props: { htmlContent: string }) {
+  return <div dangerouslySetInnerHTML={{ __html: props.htmlContent }} />;
+}
+
 function ThemedApp(props: {
   withRouter?: () => ReactNode;
   forTesting: boolean | undefined;
